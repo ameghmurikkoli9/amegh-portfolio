@@ -1,0 +1,10 @@
+html {
+  scroll-behavior: smooth;
+  background: #0d0a06;
+  height: auto;
+}
+a{
+  text-decoration: none;
+    color: inherit;
+
+}
