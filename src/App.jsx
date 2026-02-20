@@ -2,6 +2,7 @@
 import './App.css'
 import Mobile from './Components/Mobile'
 import Navbar from './Components/Navbar'
+import Skills from './Components/Skills'
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <>
       <Navbar/>
       <Mobile/>
+      <Skills/>
     </>
   )
 }

@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Handjet:wght,ELSH@100..900,2&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+.skills {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 50px 0;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.skills .skill {
+  font-family: Poppins, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  flex: 1 1 280px;
+  max-width: 250px;
+  padding: 3px 15px 30px 15px;
+  border-radius: 18px;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.skills .skill h2 {
+  font-size: 25px;
+  margin-bottom: 25px;
+  font-family: "Playfair Display", serif;
+
+}
+.skills-title {
+  margin-top: 4%;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: "Handjet", cursive;
+  font-size: clamp(42px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.skill img {
+  width: clamp(55px, 8vw, 80px);
+  height: clamp(55px, 8vw, 80px);
+}
+
+.skill .mongo {
+  width: 110px;
+}

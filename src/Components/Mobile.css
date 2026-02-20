@@ -7,8 +7,8 @@ body {
 }
 
 :root {
-  --phone-w: 430px;
-  --phone-h: 900px;
+  --phone-w: 500px;
+  --phone-h: 950px;
   --overlay-h: 320px;
   --accent: #fff;
 }
@@ -183,7 +183,7 @@ box-shadow: rgb(164, 166, 154) 0px 1px 2px 3px inset;
 }
 .role {
   font-family: Poppins, sans-serif;
-  font-size: 19px;
+  font-size: 21px;
   line-height: 1.1;
 }
 .role strong {
@@ -201,6 +201,11 @@ box-shadow: rgb(164, 166, 154) 0px 1px 2px 3px inset;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  line-height: 1;
 }
 
 .quote {
@@ -230,8 +235,8 @@ box-shadow: rgb(164, 166, 154) 0px 1px 2px 3px inset;
   justify-content: space-between;
   max-width: 100%;
   position: relative;
-  left: -7.5rem;
-  margin-bottom: 0.5rem;
+  left: -5.5rem;
+  margin-bottom: 2rem;
 }
 .btn-primary {
     background: #fff;
@@ -298,8 +303,7 @@ box-shadow: rgb(164, 166, 154) 0px 1px 2px 3px inset;
     display: flex;
       align-items: center;
       gap: 6px;
-      position: relative;
-      top: 8px;
+     
 
 }
 
@@ -351,7 +355,7 @@ box-shadow: rgb(164, 166, 154) 0px 1px 2px 3px inset;
     transform: translateX(-50%);
   }
 }
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   :root {
     --phone-w: 360px;
     --phone-h: 800px;
