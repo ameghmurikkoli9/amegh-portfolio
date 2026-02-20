@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import html from "../Images/html.svg";
 import css from "../Images/css.svg";
 import js from "../Images/js.svg";
-import react from "../Images/react.svg";
+import react from "../Images/React.svg";
 import git from "../Images/git-icon.svg";
 import github from "../Images/github.jpg";
 import vscode from "../Images/vs-code.svg";
