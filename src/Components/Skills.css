@@ -32,6 +32,7 @@
   transition:
     transform 0.25s ease,
     border-color 0.25s ease;
+    margin-bottom: -130px;
 }
 
 .skills .skill h2 {
