@@ -14,13 +14,15 @@ import express from "../Images/express-js.svg";
 import mongo from "../Images/mongodb.svg";
 import figma from "../Images/figma.svg";
 import { tr } from "framer-motion/client";
+import skill_bg from "../Images/Skill-bg.jpg";
 
 const LettersPullUp = ({ text }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
   const letters = text.split("");
+  const learningRef = useRef(null);
+  const learningInView = useInView(learningRef, { amount: 0.3 });
   const variants = {
-    
     initial: { y: 12, opacity: 0 },
     animate: (i) => ({
       y: 0,
@@ -53,7 +55,7 @@ const LettersPullUp = ({ text }) => {
 const cardVariants = {
   hidden: {
     opacity: 0,
-    y: 70, 
+    y: 70,
     scale: 0.95,
   },
   visible: {
@@ -62,14 +64,25 @@ const cardVariants = {
     scale: 1,
     transition: {
       duration: 0.7,
-      ease: [0.22, 1, 0.36, 1], 
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
 
 const Skills = () => {
   return (
-    <>
+    <motion.div className="skills-section">
+      <motion.div
+        className="skills-bg"
+        animate={{ y: [-25, 25, -25] }}
+        transition={{
+          duration: 10,
+          ease: "easeInOut",
+          repeat: Infinity,
+        }}
+      >
+        <img src={skill_bg} alt="skills background" />
+      </motion.div>
       <h2 className="skills-title">
         <LettersPullUp text="Tools Behind My Work" />
       </h2>
@@ -79,111 +92,162 @@ const Skills = () => {
           variants={cardVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
         >
           {" "}
           <motion.h2
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          >Core Skills</motion.h2>
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            Core Skills
+          </motion.h2>
           <motion.img
-           variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="html" src={html} alt="HTML" />
-          <motion.img 
-           variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="css" src={css} alt="CSS" />
-          <motion.img 
-           variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="js" src={js} alt="JavaScript" />
-          <motion.img 
-           variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="react" src={react} alt="React" />
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="html"
+            src={html}
+            alt="HTML"
+          />
+          <motion.img
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="css"
+            src={css}
+            alt="CSS"
+          />
+          <motion.img
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="js"
+            src={js}
+            alt="JavaScript"
+          />
+          <motion.img
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="react"
+            src={react}
+            alt="React"
+          />
         </motion.div>
         <motion.div
           className="skill tools"
           variants={cardVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
         >
           {" "}
           <motion.h2
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}>Development Tools</motion.h2>
-          <motion.img variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-           className="git" src={git} alt="Git" />
-          <motion.img  variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="github" src={github} alt="GitHub" />
-          <motion.img  variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="vscode" src={vscode} alt="VS Code" />
-          <motion.img  variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="devtools" src={devtools} alt="DevTools" />
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            Development Tools
+          </motion.h2>
+          <motion.img
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="git"
+            src={git}
+            alt="Git"
+          />
+          <motion.img
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="github"
+            src={github}
+            alt="GitHub"
+          />
+          <motion.img
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="vscode"
+            src={vscode}
+            alt="VS Code"
+          />
+          <motion.img
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="devtools"
+            src={devtools}
+            alt="DevTools"
+          />
         </motion.div>
         <motion.div
           className="skill learning"
           variants={cardVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
         >
           {" "}
           <motion.h2
-          variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          >Currently Exploring</motion.h2>
-          <motion.img  variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="node" src={node} alt="Node.js" />
-          <motion.img  variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="express" src={express} alt="Express.js" />
-          <motion.img variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-           className="mongo" src={mongo} alt="MongoDB" />
-          <motion.img variants={cardVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          className="figma" src={figma} alt="Figma" />
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            Currently Exploring
+          </motion.h2>
+          <motion.img
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="node"
+            src={node}
+            alt="Node.js"
+          />
+          <motion.img
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="express"
+            src={express}
+            alt="Express.js"
+          />
+          <motion.img
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="mongo"
+            src={mongo}
+            alt="MongoDB"
+          />
+          <motion.img
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="figma"
+            src={figma}
+            alt="Figma"
+          />
         </motion.div>
       </div>
-    </>
+    </motion.div>
   );
 };
 

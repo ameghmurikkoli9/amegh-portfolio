@@ -32,7 +32,6 @@
   transition:
     transform 0.25s ease,
     border-color 0.25s ease;
-    margin-bottom: -130px;
 }
 
 .skills .skill h2 {
@@ -59,4 +58,36 @@
 
 .skill .mongo {
   width: 110px;
+}
+
+.skills-section {
+  position: relative;
+  overflow: hidden;
+   z-index: 0; 
+}
+
+.skills-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+z-index: 0;  opacity: 1;
+  pointer-events: none;
+}
+
+.skills-bg img {
+  width: 1500px;
+  max-width: 190%;
+
+}
+.skills,
+.skills-title {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 962px) {
+ .skills-bg img {
+    visibility: hidden;
+  }
 }

@@ -1,48 +1,67 @@
 import React from "react";
 import "./Projects.css";
 import skinova from "../Images/Project.png";
+import { motion } from "framer-motion";
+
+const cardVariants = {
+  hidden: {
+    opacity: 0,
+    y: 70,
+    scale: 0.95,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 const Projects = () => {
+    
   return (
-    <section id="projects" className="projects-section">
-      <h2 className="projects-title">What I Built</h2>
+    <motion.section id="projects" className="projects-section" variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }}>
+      <motion.h2 className="projects-title" variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>What I Built</motion.h2>
     
       
 
-      <div className="project-card">
+      <motion.div className="project-card" variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
 
-        <div className="project-image">
-          <img src={skinova} alt="Skinova project preview" />
-        </div>
+        <motion.div className="project-image" variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
+          <motion.img src={skinova} alt="Skinova project preview" variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} />
+        </motion.div>
 
-        <div className="project-content">
-          <h3>Skinova</h3>
-          <p>
+        <motion.div className="project-content" variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
+          <motion.h3 variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>Skinova</motion.h3>
+          <motion.p variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
             A modern skincare landing page with smooth animations,
             responsive layout, and clean UI built using React.
-          </p>
+          </motion.p>
 
-          <div className="tech-stack">
-            <span>React</span>
-            <span>CSS</span>
-            <span>Animations</span>
-            <span>Responsive</span>
-          </div>
+          <motion.div className="tech-stack" variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
+            <motion.span variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>React</motion.span>
+            <motion.span variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>CSS</motion.span>
+            <motion.span variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>Animations</motion.span>
+            <motion.span variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>Responsive</motion.span>
+          </motion.div>
 
-          <div className="project-buttons">
-            <a href="https://skinova-one.vercel.app" target="_blank" rel="noreferrer">
+          <motion.div className="project-buttons" variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
+            <motion.a href="https://skinova-one.vercel.app" target="_blank" rel="noreferrer" variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
               Live Site
-            </a>
+            </motion.a>
 
-            <a href="https://github.com/ameghmurikkoli9/Skinova" target="_blank" rel="noreferrer">
+            <motion.a href="https://github.com/ameghmurikkoli9/Skinova" target="_blank" rel="noreferrer" variants={cardVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}>
               GitHub
-            </a>
-          </div>
-        </div>
+            </motion.a>
+          </motion.div>
+        </motion.div>
 
-      </div>
+      </motion.div>
 
-    </section>
+    </motion.section>
   );
 };
 

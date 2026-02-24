@@ -1,5 +1,5 @@
 .projects-section {
-  padding: 120px 6%;
+  padding: 10px 6%;
   text-align: center;
 }
 
@@ -132,7 +132,7 @@ transform: 0.5s ease;
 @media (max-width: 480px) {
 
   .projects-section {
-    padding: 70px 5%;
+    padding: 0px 5%;
   }
 
   .projects-title {

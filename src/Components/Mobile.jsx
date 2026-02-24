@@ -41,7 +41,7 @@ const Mobile = () => {
   // move up slowly while scrolling
   const y = useTransform(scrollYProgress, [0, 1], [overlayHeight, 0]);
   return (
-    <>
+    <div className="hero">
       <section className="mobile-intro">
         <motion.div
           className="hero-bg"
@@ -147,7 +147,7 @@ const Mobile = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
