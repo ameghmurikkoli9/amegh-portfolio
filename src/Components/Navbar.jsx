@@ -9,6 +9,7 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar ${open ? "open" : ""}`} aria-label="Main navigation">
+
       <ul className="nav-links">
         <li>
           <a href="#home" onClick={close}>
@@ -16,20 +17,20 @@ const Navbar = () => {
           </a>
         </li>
         <li>
+          <a href="#about" className={({ isActive }) => (isActive ? "active" : "")} onClick={close}>
+            About
+          </a>
+        </li>
+        <li>
           <a href="#projects" onClick={close}>
             Projects
           </a>
         </li>
-        <li>
-          <NavLink to="/blogs" className={({ isActive }) => (isActive ? "active" : "")} onClick={close}>
-            Blogs
-          </NavLink>
-        </li>
-        <li>
+        {/* <li>
           <a href="#pricing" onClick={close}>
             Pricing
           </a>
-        </li>
+        </li> */}
 <li>
 
       <a className="contact" href="#contact" onClick={close}>
@@ -57,20 +58,20 @@ const Navbar = () => {
             </a>
           </li>
           <li>
+            <NavLink to="#about" onClick={close}>
+              About
+            </NavLink>
+          </li>
+          <li>
             <a href="#projects" onClick={close}>
               Projects
             </a>
           </li>
-          <li>
-            <NavLink to="/blogs" onClick={close}>
-              Blogs
-            </NavLink>
-          </li>
-          <li>
+          {/* <li>
             <a href="#pricing" onClick={close}>
               Pricing
             </a>
-          </li>
+          </li> */}
           <li>
             <a className="contact" href="#contact" onClick={close}>
               Contact

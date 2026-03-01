@@ -3,10 +3,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import "./Mobile.css";
 import { TbWorld } from "react-icons/tb";
-import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { MdArrowOutward } from "react-icons/md";
 import bg from "../Images/spiral.jpg";
+
 
 const Mobile = () => {
   const [overlayHeight, setOverlayHeight] = useState(0);
@@ -43,17 +44,6 @@ const Mobile = () => {
   return (
     <div className="hero">
       <section className="mobile-intro">
-        <motion.div
-          className="hero-bg"
-          animate={{ y: [-20, 20, -20] }}
-          transition={{
-            duration: 8,
-            ease: "easeInOut",
-            repeat: Infinity,
-          }}
-        >
-          <img src={bg} alt="background" />
-        </motion.div>
         <div className="phone" ref={phoneRef}>
           <span className="btn volume-up" />
           <span className="btn volume-down" />
@@ -95,11 +85,11 @@ const Mobile = () => {
                     </a>
                     <a
                       className="icon"
-                      href="https://www.instagram.com/a.m.e.g.h/"
+                      href="https://github.com/ameghmurikkoli9"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <FaInstagram size={20} />
+                      <FaGithub size={20} />
                     </a>
                     <a
                       className="icon"

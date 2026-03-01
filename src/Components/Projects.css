@@ -54,7 +54,7 @@ width: 100%;
   opacity: 0.75;
   margin-bottom: 20px;
   line-height: 1.6;
-  font-size: clamp(16px, 1.5vw, 28px);
+  font-size: clamp(16px, 1.2vw, 28px);
 }
 
 /* TECH STACK */
@@ -94,7 +94,7 @@ transform: 0.5s ease;
 }
 
 .project-buttons a:first-child {
-  background: #e7ff63;
+  background: #00f5d4;
   color: #000;
   border: none;
 }
@@ -102,6 +102,8 @@ transform: 0.5s ease;
   background: white;
   color: #000;
   border: none;
+  list-style: none;
+  
 }
 
 .project-buttons a:hover {

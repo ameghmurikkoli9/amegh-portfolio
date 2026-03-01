@@ -1,0 +1,136 @@
+.contact-section {
+  padding: 120px 10%;
+  color: #ffffff;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+/* LEFT SIDE */
+
+.contact-left {
+  flex: 1;
+  min-width: 300px;
+  height: 500px;
+  margin-top: -10px;
+}
+
+
+.contact-label {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #888;
+  margin-bottom: 0px;
+}
+
+
+.contact-heading {
+  font-size: 55px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 40px;
+}
+
+.contact-info p {
+    font-size: 20px;
+  margin: 20px 0;
+  color: #00f5d4;
+}
+
+
+
+ hr
+ {
+  border: none;
+  height: 1.5px;
+  background: #222;
+}
+.contact-socials {
+  display: flex;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.social-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #ffffff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+  background: #00f5d4;
+  color: #000;
+}
+
+/* RIGHT SIDE */
+
+.contact-right {
+  flex: 1;
+  min-width: 320px;
+}
+
+.contact-form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form h3 {
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: #1c2633;
+  border: none;
+  padding: 14px;
+  margin-bottom: 15px;
+  color: #fff;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 1px solid #00f5d4; /* your accent */
+}
+
+.contact-form button {
+  padding: 14px;
+  background: #00f5d4;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 16px;
+}
+
+.contact-form button:hover {
+  transform: translateY(-3px);
+}

@@ -71,18 +71,7 @@ const cardVariants = {
 
 const Skills = () => {
   return (
-    <motion.div className="skills-section">
-      <motion.div
-        className="skills-bg"
-        animate={{ y: [-25, 25, -25] }}
-        transition={{
-          duration: 10,
-          ease: "easeInOut",
-          repeat: Infinity,
-        }}
-      >
-        <img src={skill_bg} alt="skills background" />
-      </motion.div>
+    <>
       <h2 className="skills-title">
         <LettersPullUp text="Tools Behind My Work" />
       </h2>
@@ -247,7 +236,7 @@ const Skills = () => {
           />
         </motion.div>
       </div>
-    </motion.div>
+    </>
   );
 };
 
