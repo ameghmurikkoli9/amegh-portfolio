@@ -43,7 +43,7 @@ body {
   width: var(--phone-w);
   height: var(--phone-h);
   background-color: rgba(0, 0, 0, 0);
-  background: transparent;
+  background: rgb(27, 27, 27);
   border-radius: 64px;
   position: relative;
   overflow: visible;

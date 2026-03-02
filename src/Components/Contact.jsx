@@ -110,7 +110,12 @@ const Contact = () => {
 
  
       </div>
+      <div className="wrap">
+  <button className="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Scroll To Top</button>
+</div>
+
     </section>
+    
   );
 };
 
