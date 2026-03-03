@@ -8,8 +8,10 @@ const Navbar = () => {
   const close = () => setOpen(false);
 
   return (
-    <nav className={`navbar ${open ? "open" : ""}`} aria-label="Main navigation">
-
+    <nav
+      className={`navbar ${open ? "open" : ""}`}
+      aria-label="Main navigation"
+    >
       <ul className="nav-links">
         <li>
           <a href="#home" onClick={close}>
@@ -17,7 +19,11 @@ const Navbar = () => {
           </a>
         </li>
         <li>
-          <a href="#about" className={({ isActive }) => (isActive ? "active" : "")} onClick={close}>
+          <a
+            href="#about"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={close}
+          >
             About
           </a>
         </li>
@@ -31,13 +37,11 @@ const Navbar = () => {
             Pricing
           </a>
         </li> */}
-<li>
-
-      <a className="contact" href="#contact" onClick={close}>
-        Contact
-      </a>
-</li>
-
+        <li>
+          <a className="contact" href="#contact" onClick={close}>
+            Contact
+          </a>
+        </li>
       </ul>
       <button
         className="hamburger"

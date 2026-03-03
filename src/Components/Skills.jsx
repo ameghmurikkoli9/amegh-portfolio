@@ -14,11 +14,10 @@ import express from "../Images/express-js.svg";
 import mongo from "../Images/mongodb.svg";
 import figma from "../Images/figma.svg";
 import { tr } from "framer-motion/client";
-import skill_bg from "../Images/Skill-bg.jpg";
 
 const LettersPullUp = ({ text }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
+  const isInView = useInView(ref, { once: true });
   const letters = text.split("");
   const learningRef = useRef(null);
   const learningInView = useInView(learningRef, { amount: 0.3 });
@@ -81,7 +80,7 @@ const Skills = () => {
           variants={cardVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           {" "}
           <motion.h2
@@ -97,6 +96,7 @@ const Skills = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
+            loading="lazy"
             className="html"
             src={html}
             alt="HTML"
@@ -106,6 +106,7 @@ const Skills = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
+            loading="lazy"
             className="css"
             src={css}
             alt="CSS"
@@ -115,6 +116,7 @@ const Skills = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
+            loading="lazy"
             className="js"
             src={js}
             alt="JavaScript"
@@ -124,6 +126,7 @@ const Skills = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
+            loading="lazy"
             className="react"
             src={react}
             alt="React"
@@ -134,7 +137,7 @@ const Skills = () => {
           variants={cardVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           {" "}
           <motion.h2

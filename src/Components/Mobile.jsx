@@ -6,7 +6,6 @@ import { TbWorld } from "react-icons/tb";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { MdArrowOutward } from "react-icons/md";
-import bg from "../Images/spiral.jpg";
 
 
 const Mobile = () => {
@@ -42,7 +41,7 @@ const Mobile = () => {
   // move up slowly while scrolling
   const y = useTransform(scrollYProgress, [0, 1], [overlayHeight, 0]);
   return (
-    <div className="hero">
+    <div className="hero" id="home">
       <section className="mobile-intro">
         <div className="phone" ref={phoneRef}>
           <span className="btn volume-up" />

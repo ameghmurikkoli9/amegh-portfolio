@@ -3,27 +3,33 @@ section {
 }
 
 .navbar {
-    display: flex;
+       display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 17px 35px;
-    background-color: transparent;
-    color: #bbbbbb;
+    padding: 17px 10px;
+
     max-width: 100%;
     width: fit-content;
     margin-top: 4rem;
-    border-radius: 5rem;
     margin-inline: auto;
-    position: relative;
-    border: 1px solid #2f2f2f;
-    transition: 0.3s ease;
     margin-bottom: 2rem;
+    border-radius: 5rem;
+    position: relative;
     box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+    color: #bbbbbb;
+    transition: all 0.3s ease;
 }
 
 .nav-links {
     display: flex;
-    gap: 58px;
+    gap: 35px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -31,29 +37,34 @@ section {
 }
 
 .nav-links a{
+     position: relative;
     text-decoration: none;
     font-size: 24px;
-    transition: 0.5s;
+    padding: 8px 15px;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.3s ease;
 }
 
-.nav-links a:hover{
-color: white;
-}
-.contact {
-    background: #00f5d4;
-    color: #000;
-    padding: 6px 14px;
+.nav-links a::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
     border-radius: 50px;
-    border: none;
-    font-weight: 500;
-    font-size: 14px;
-    transition: 0.2s;
-    text-decoration: none;
 }
-li .contact:hover {
-    color: black;
-    background-color: white;
+.nav-links a:hover{
+color: black;
+background: #00f5d4;
 }
+
+
 
 .hamburger {
     display: none;
