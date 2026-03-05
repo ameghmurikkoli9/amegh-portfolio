@@ -190,7 +190,7 @@ const Skills = () => {
           variants={cardVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           {" "}
           <motion.h2
