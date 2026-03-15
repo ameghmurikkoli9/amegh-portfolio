@@ -113,7 +113,8 @@ const Mobile = () => {
                         <MdArrowOutward className="arrow-icon" size={15} />
                       </span>
                     </button>
-                    <button className="btn-ghost">My Works</button>
+                    
+                    <button className="btn-ghost" ><a href="#projects">My Works</a></button>
                   </div>
                 </div>
                 <div className="right">
