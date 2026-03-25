@@ -141,6 +141,8 @@ box-shadow: rgb(164, 166, 154) 0px 1px 2px 3px inset;
   justify-self: flex-end;
   position: absolute;
   margin-right: 10px;
+  -webkit-text-stroke: 2px white;
+  color: transparent;
 }
 
 
@@ -344,6 +346,39 @@ box-shadow: rgb(164, 166, 154) 0px 1px 2px 3px inset;
   padding-right: 60px;
   opacity: 0.2;
   letter-spacing: 2px;
+}
+/* SOCIAL CONTAINER */
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+/* ICON BASE */
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  text-decoration: none;
+
+  color: white;
+  border: 1px solid #00f5d4;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.3s ease;
+}
+
+/* 🔥 HOVER EFFECT */
+.icon:hover {
+  color: black;
+  background: #00f5d4;
+  transform: translateY(-3px) scale(1.1);
 }
 @keyframes scrollText {
   from {

@@ -1,0 +1,152 @@
+.pill-nav-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    position: relative;
+  }
+  
+  /* NAVBAR BOX */
+  .pill-nav-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 510px;
+    background: #181614;
+    border-radius: 999px;
+    padding: 6px;
+  }
+  
+  .pill-list {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+  
+  /* PILL */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+  
+    padding: 10px 22px;
+    border-radius: 999px;
+  font-size: 20px;
+    background: black;
+    color: white;
+    border: 1px solid white;
+  
+    text-decoration: none;
+    font-weight: 600;
+  
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .pill:hover {
+    transform: translateY(-2px);
+    background: black;
+    color: #00f5d4;
+  }
+  
+  /* GSAP CIRCLE */
+  .hover-circle {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    border-radius: 50%;
+    background: #00f5d4;
+    color: #00f5d4;
+    z-index: 1;
+  }
+  
+  .label-stack {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .pill-label-hover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: black;
+  }
+  
+  /* 🔥 HAMBURGER */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;   /* 🔥 important */
+    z-index: 1001; 
+  }
+  
+  .hamburger span {
+    width: 22px;
+    height: 2px;
+    background: white;
+  }
+  
+  /* 🔥 MOBILE MENU */
+  .mobile-menu {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    position: absolute;
+    top: 30px;
+    width: 25%;
+    background: #181614;
+    border-radius: 20px;
+    padding: 15px;
+    z-index: 1000;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+  
+  .mobile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .mobile-menu a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: block;
+  }
+  
+  .mobile-menu a:hover {
+    background: white;
+    color: black;
+  }
+  
+  /* RESPONSIVE */
+  .desktop {
+    display: flex;
+  }
+  
+  @media (max-width: 768px) {
+  
+    .desktop {
+      display: none;
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  
+    .pill-nav-items {
+      display: none;
+    }
+  }

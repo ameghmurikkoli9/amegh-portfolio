@@ -6,6 +6,8 @@ import { TbWorld } from "react-icons/tb";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { MdArrowOutward } from "react-icons/md";
+import { FaXTwitter } from "react-icons/fa6";
+
 
 
 const Mobile = () => {
@@ -80,7 +82,7 @@ const Mobile = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      X
+                      <FaXTwitter />
                     </a>
                     <a
                       className="icon"

@@ -1,72 +1,77 @@
+/* FIX SCROLL OFFSET */
 section {
     scroll-margin-top: 90px;
-}
-
-.navbar {
-       display: flex;
-    justify-content: space-between;
+  }
+  
+  /* NAVBAR CONTAINER */
+  .navbar {
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 17px 10px;
-
-    max-width: 100%;
-    width: fit-content;
+  
+    padding: 10px;
     margin-top: 4rem;
     margin-inline: auto;
-    margin-bottom: 2rem;
-    border-radius: 5rem;
-    position: relative;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+  
+    width: fit-content;
+    border-radius: 999px;
+  
+    /* 🔥 Glass background */
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+  
     border: 1px solid rgba(255, 255, 255, 0.15);
+  
     box-shadow:
-        0 8px 32px rgba(0,0,0,0.35),
-        inset 0 1px 0 rgba(255,255,255,0.08);
-    color: #bbbbbb;
-    transition: all 0.3s ease;
-}
-
-.nav-links {
+      0 10px 40px rgba(0, 0, 0, 0.4),
+      inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  
+    position: relative;
+  }
+  
+  /* NAV LINKS */
+  .nav-links {
     display: flex;
-    gap: 35px;
+    gap: 10px;
     list-style: none;
-    margin: 0;
     padding: 0;
-    align-items: center;
-}
-
-.nav-links a{
-     position: relative;
+    margin: 0;
+  }
+  
+  /* EACH LINK (PILL STYLE) */
+  .nav-links a {
     text-decoration: none;
-    font-size: 24px;
-    padding: 8px 15px;
-    border-radius: 50px;
-    border: 1px solid #fff;
-    overflow: hidden;
-    z-index: 1;
-    transition: color 0.3s ease;
-}
-
-.nav-links a::before{
-    content: "";
-    position: absolute;
-    inset: 0;
+    font-size: 18px;
+    padding: 10px 18px;
+  
+    border-radius: 999px;
+  
+    color: #ccc;
+    background: transparent;
+  
+    transition: all 0.3s ease;
+  }
+  
+  /* 🔥 HOVER EFFECT (MAIN) */
+  .nav-links a:hover {
+    color: black;
     background: white;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-    z-index: -1;
-    border-radius: 50px;
-}
-.nav-links a:hover{
-color: black;
-background: #00f5d4;
-}
-
-
-
-.hamburger {
+  
+    box-shadow:
+      0 4px 15px rgba(255, 255, 255, 0.4),
+      inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  
+    transform: translateY(-2px);
+  }
+  
+  /* CLICK EFFECT */
+  .nav-links a:active {
+    transform: scale(0.95);
+  }
+  
+  /* HAMBURGER */
+  .hamburger {
     display: none;
     background: transparent;
     border: none;
@@ -74,72 +79,70 @@ background: #00f5d4;
     gap: 4px;
     padding: 6px;
     cursor: pointer;
-}
-.hamburger span {
+  }
+  
+  .hamburger span {
     display: block;
     width: 22px;
     height: 2px;
     background: #cfcfcf;
-}
-
-.mobile-menu {
+  }
+  
+  /* MOBILE MENU */
+  .mobile-menu {
     display: none;
-}
-
-
-
-@media (max-width: 780px) {
+  }
+  
+  /* 📱 MOBILE */
+  @media (max-width: 780px) {
     .nav-links {
-        display: none;
+      display: none;
     }
-
+  
     .hamburger {
-        display: flex;
-
+      display: flex;
     }
-
-    .contact {
-        display: none;
-    }
-
+  
     .mobile-menu {
-        display: none;
-        position: absolute;
-        left: -2px;
-        right: -2px;
-        top: calc(100% + 12px);
-        background: #111;
-        border-radius: 14px;
-        padding: 14px;
-        border: 1px solid #2f2f2f;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
-        z-index: 40;
+      position: absolute;
+      top: 110%;
+      left: 0;
+      right: 0;
+  
+      background: #111;
+      border-radius: 14px;
+      padding: 14px;
+  
+      border: 1px solid #2f2f2f;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  
+      display: none;
     }
-
+  
     .mobile-menu.show {
-        display: block;
+      display: block;
     }
-
+  
     .mobile-menu ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
-
+  
     .mobile-menu a {
-        text-decoration: none;
-        font-size: 17px;
-        padding: 8px 12px;
-        display: block;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px;
+      color: #ccc;
     }
-
-    .mobile-menu .contact {
-        display: inline-block;
-        margin-top: 8px;
+  
+    .mobile-menu a:hover {
+      background: white;
+      color: black;
+      border-radius: 10px;
     }
-}
-
-
+  }
