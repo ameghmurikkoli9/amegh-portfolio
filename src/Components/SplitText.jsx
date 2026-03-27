@@ -32,10 +32,13 @@ const SplitText = ({ text }) => {
 };
 
 const nameStyle = {
-  fontSize: "8rem",
-  fontWeight: "bold",
-  letterSpacing: "5px",
-  fontFamily: "'Caveat', cursive",
-};
+    fontSize: "clamp(2.5rem, 10vw, 8rem)", 
+    fontWeight: "bold",
+    letterSpacing: "clamp(2px, 1vw, 5px)",
+    fontFamily: "'Caveat', cursive",
+    textAlign: "center",
+    padding: "0 10px",
+    wordBreak: "break-word",
+  };
 
 export default SplitText;

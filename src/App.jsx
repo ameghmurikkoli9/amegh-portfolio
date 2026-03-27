@@ -17,13 +17,12 @@ function App() {
       defaults: { ease: "power3.out" },
     });
 
-    // 🔥 ONLY loader exit animation
     tl.to("#loader", {
       y: "-100%",
       opacity: 0,
       duration: 3,
       ease: "power4.inOut",
-      delay: 1.5, // wait for text animation
+      delay: 1.5, 
     });
 
     tl.call(() => setLoading(false));
