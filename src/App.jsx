@@ -7,7 +7,7 @@ import Skills from "./Components/Skills";
 import About from "./Components/About";
 import Projects from "./Components/Projects";
 import Contact from "./Components/Contact";
-import webBg from "./Images/dark-corduroy-fabric-textured-background.jpg";
+import webBg from "./Images/bg2.webp";
 
 function App() {
   const [loading, setLoading] = useState(true);

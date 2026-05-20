@@ -6,8 +6,8 @@ body {
 }
 
 :root {
-  --phone-w: 500px;
-  --phone-h: 950px;
+  --phone-w: 550px;
+  --phone-h: 1040px;
   --overlay-h: 320px;
   --accent: #fff;
 }
@@ -388,10 +388,10 @@ box-shadow: rgb(164, 166, 154) 0px 1px 2px 3px inset;
     transform: translateX(-50%);
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   :root {
-    --phone-w: 360px;
-    --phone-h: 800px;
+    --phone-w: 450px;
+    --phone-h: 900px;
   }
 
   .cta-row{
@@ -401,6 +401,12 @@ box-shadow: rgb(164, 166, 154) 0px 1px 2px 3px inset;
 
   .worldwide{
  margin-top: -10px;
+  }
+}
+@media (max-width: 480px) {
+  :root {
+    --phone-w: 360px;
+    --phone-h: 800px;
   }
 }
 
