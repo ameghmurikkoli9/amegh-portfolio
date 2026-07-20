@@ -1,10 +1,10 @@
-import Navbar from "./components/layout/Navbar";
-import Footer from "./components/layout/Footer";
-import Hero from "./components/sections/Hero";
-import Projects from "./components/sections/Projects";
-import Workflow from "./components/sections/Workflow";
-import Skills from "./components/sections/Skills";
-import Contact from "./components/sections/Contact";
+import Navbar from "./Components/layout/Navbar";
+import Footer from "./Components/layout/Footer";
+import Hero from "./Components/sections/Hero";
+import Projects from "./Components/sections/Projects";
+import Workflow from "./Components/sections/Workflow";
+import Skills from "./Components/sections/Skills";
+import Contact from "./Components/sections/Contact";
 import "./App.css";
 
 export default function App() {
