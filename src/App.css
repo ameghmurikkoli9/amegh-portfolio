@@ -1,3 +1,21 @@
-html {
-  scroll-behavior: smooth;
+/* Global shared utilities */
+.section-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+/* Workflow + Skills side-by-side grid */
+.process-skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid #1a1a1a;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+@media (max-width: 768px) {
+  .process-skills-grid {
+    grid-template-columns: 1fr;
+  }
 }

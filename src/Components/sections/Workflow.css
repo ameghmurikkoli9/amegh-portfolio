@@ -1,0 +1,65 @@
+.workflow {
+  padding: 4rem 3rem;
+  background: #0d0d0d;
+  border-right: 1px solid #1a1a1a;
+}
+
+.workflow-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.workflow-steps {
+  display: flex;
+  flex-direction: column;
+}
+
+.workflow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #191919;
+  transition: padding-left 0.2s;
+}
+
+.workflow-step:last-child {
+  border-bottom: none;
+}
+
+.workflow-step:hover {
+  padding-left: 0.5rem;
+}
+
+.workflow-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.75rem;
+  color: #e63329;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  min-width: 2.5rem;
+  flex-shrink: 0;
+}
+
+.workflow-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+.workflow-desc {
+  font-size: 0.78rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .workflow {
+    padding: 3rem 1.5rem;
+    border-right: none;
+    border-bottom: 1px solid #1a1a1a;
+  }
+}

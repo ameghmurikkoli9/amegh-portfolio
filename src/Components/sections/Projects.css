@@ -1,0 +1,225 @@
+.projects {
+  padding: 5rem 3rem;
+  background: #0a0a0a;
+  border-top: 1px solid #1a1a1a;
+}
+
+.projects-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.projects-view-all {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e63329;
+  transition: gap 0.2s;
+}
+
+.projects-view-all:hover {
+  gap: 0.7rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+/* ---- card ---- */
+.project-card {
+  background: #0e0e0e;
+  border: 1px solid #1a1a1a;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.project-card:hover {
+  border-color: #2a2a2a;
+  transform: translateY(-6px);
+}
+
+/* ---- thumbnail ---- */
+.project-image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #141414;
+}
+
+.project-num {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  color: #e63329;
+  z-index: 2;
+  letter-spacing: 0.05em;
+}
+
+.project-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #101010 0%, #1c1c1c 100%);
+  transition: background 0.3s;
+}
+
+.project-card:hover .project-image-placeholder {
+  background: linear-gradient(135deg, #141414 0%, #222 100%);
+}
+
+.project-placeholder-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  color: #222;
+  text-transform: uppercase;
+}
+
+.project-ext-link {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  color: #444;
+  padding: 0.4rem;
+  border: 1px solid #2a2a2a;
+  background: rgba(10, 10, 10, 0.6);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-ext-link:hover {
+  color: #fff;
+  border-color: #e63329;
+  background: #e63329;
+}
+
+/* ---- info ---- */
+.project-info {
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.project-info-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.project-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+}
+
+.project-category {
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e63329;
+  font-weight: 600;
+}
+
+.project-arrow-btn {
+  color: #333;
+  padding: 0.4rem;
+  border: 1px solid #1e1e1e;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-arrow-btn:hover {
+  color: #ffffff;
+  background: #e63329;
+  border-color: #e63329;
+}
+
+.project-desc {
+  font-size: 0.78rem;
+  color: #555;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1.1rem;
+}
+
+.project-tech-tag {
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid #222;
+  color: #777;
+}
+
+.project-links {
+  display: flex;
+  gap: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #1a1a1a;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #777;
+  transition: color 0.2s;
+}
+
+.project-link:hover {
+  color: #e63329;
+}
+
+.project-link--alt {
+  color: #555;
+}
+
+.project-link--alt:hover {
+  color: #aaa;
+}
+
+/* ---- responsive ---- */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .projects {
+    padding: 4rem 1.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
