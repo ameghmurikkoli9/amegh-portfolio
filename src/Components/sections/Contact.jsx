@@ -4,6 +4,13 @@ import { ArrowRight, Mail, MapPin, Globe } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import "./Contact.css";
 
+const INITIAL_FORM_DATA = {
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+};
+
 const CONTACT_INFO = [
   {
     icon: Mail,
@@ -26,24 +33,40 @@ const CONTACT_INFO = [
 ];
 
 export default function Contact() {
-  const formRef = useRef(null);
   const sectionRef = useRef(null);
   const inView = useInView(sectionRef, { once: true, margin: "-80px" });
-  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [formData, setFormData] = useState(INITIAL_FORM_DATA);
+  const [status, setStatus] = useState("idle");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("loading");
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((currentData) => ({ ...currentData, [name]: value }));
+    if (status !== "idle") setStatus("idle");
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    if (Object.values(formData).some((value) => !value.trim())) return;
+
+    setStatus("sending");
+
     try {
-      await emailjs.sendForm(
+      await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
       );
+
+      setFormData(INITIAL_FORM_DATA);
       setStatus("success");
-      formRef.current.reset();
-    } catch {
+    } catch (error) {
+      console.error("EmailJS submission failed:", error);
       setStatus("error");
     }
   };
@@ -107,12 +130,7 @@ export default function Contact() {
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.15 }}
         >
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="contact-form"
-            noValidate
-          >
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="contact-name" className="form-label">
@@ -120,12 +138,14 @@ export default function Contact() {
                 </label>
                 <input
                   id="contact-name"
-                  name="from_name"
+                  name="name"
                   type="text"
                   className="form-input"
                   placeholder="Your name"
                   required
                   autoComplete="name"
+                  value={formData.name}
+                  onChange={handleChange}
                 />
               </div>
               <div className="form-group">
@@ -134,12 +154,14 @@ export default function Contact() {
                 </label>
                 <input
                   id="contact-email"
-                  name="reply_to"
+                  name="email"
                   type="email"
                   className="form-input"
                   placeholder="your@email.com"
                   required
                   autoComplete="email"
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -148,13 +170,15 @@ export default function Contact() {
               <label htmlFor="contact-subject" className="form-label">
                 Subject
               </label>
-              <input
-                id="contact-subject"
-                name="subject"
+                <input
+                  id="contact-subject"
+                  name="subject"
                 type="text"
                 className="form-input"
-                placeholder="Project idea, collaboration..."
-                required
+                  placeholder="Project idea, collaboration..."
+                  required
+                  value={formData.subject}
+                  onChange={handleChange}
               />
             </div>
 
@@ -169,28 +193,28 @@ export default function Contact() {
                 placeholder="Tell me about your project..."
                 rows={5}
                 required
+                value={formData.message}
+                onChange={handleChange}
               />
             </div>
 
             <button
               type="submit"
               className="form-submit"
-              disabled={status === "loading"}
+              disabled={status === "sending"}
             >
-              {status === "loading"
-                ? "Sending..."
-                : "Let's Create Something Amazing"}
-              <ArrowRight size={14} />
+              {status === "sending" ? "Sending..." : "Let's Create Something Amazing"}
+              {status !== "sending" && <ArrowRight size={14} />}
             </button>
 
             {status === "success" && (
-              <p className="form-status form-status--success">
-                Message sent! I&apos;ll get back to you soon.
+              <p className="form-status form-status--success" role="status">
+                🚀 Boom! Your message just reached us.
               </p>
             )}
             {status === "error" && (
-              <p className="form-status form-status--error">
-                Something went wrong. Please try again or email me directly.
+              <p className="form-status form-status--error" role="alert">
+                ❌ Oops! Something went wrong. Please try again.
               </p>
             )}
           </form>

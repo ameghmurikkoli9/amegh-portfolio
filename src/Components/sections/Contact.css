@@ -134,6 +134,16 @@
   border-color: #e63329;
 }
 
+/* Keep browser-autofilled values consistent with the dark form design. */
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+  -webkit-box-shadow: 0 0 0 1000px #0e0e0e inset;
+  box-shadow: 0 0 0 1000px #0e0e0e inset;
+  caret-color: #ffffff;
+}
+
 .form-textarea {
   min-height: 120px;
   resize: vertical;

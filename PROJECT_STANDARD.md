@@ -14,13 +14,13 @@
 | Framework        | React (Vite)                    |
 | Styling          | Tailwind CSS (or CSS Modules)    |
 | Animations       | Framer Motion                    |
-| Icons            | Lucide React / React Icons       |
-| Forms            | Formspree / EmailJS (no backend) |
+| Icons            | Lucide React                     |
+| Forms            | Not configured                   |
 | Hosting          | Vercel                           |
 | Version Control  | Git + GitHub                     |
 | Design Reference | Canva (mockups/assets)           |
 
-No custom backend — this is a static site. Contact form uses a third-party form service (Formspree/EmailJS) since there's no Node/Express server.
+No custom backend — this is a static site. Configure the contact form service when it is ready.
 
 ---
 
@@ -136,7 +136,7 @@ Each project entry in `src/data/projects.js` must follow this shape:
 
 - Connect GitHub repo directly to Vercel (auto-deploy on push to `main`)
 - Preview deployments auto-generated for PRs/feature branches
-- Environment variables (e.g. Formspree/EmailJS keys) set in Vercel dashboard, not committed to repo
+- Environment variables for future services set in Vercel dashboard, not committed to repo
 - Custom domain connected once live (recommended over default `.vercel.app` subdomain)
 
 ---
