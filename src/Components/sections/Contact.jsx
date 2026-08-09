@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, Mail, MapPin, Globe } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import "./Contact.css";
 
@@ -25,10 +25,10 @@ const CONTACT_INFO = [
     href: null,
   },
   {
-    icon: Globe,
-    label: "GITHUB",
-    value: "github.com/ameghmurikkoli9",
-    href: "https://github.com/ameghmurikkoli9",
+    icon: Phone,
+    label: "CALL ME",
+    value: "+91 876 721 66 99",
+    href: "tel:+918767216699",
   },
 ];
 

@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion as Motion, useInView } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import projects from "../../data/projects";
 import "./Projects.css";
@@ -13,15 +13,13 @@ export default function Projects() {
       {/* Header */}
       <div className="projects-header">
         <span className="section-label">Featured Projects</span>
-        <a href="#" className="projects-view-all">
-          View All Projects <ArrowRight size={13} />
-        </a>
+        <span className="projects-count">03 Selected Works</span>
       </div>
 
       {/* Grid */}
       <div className="projects-grid">
         {projects.map((project, i) => (
-          <motion.article
+          <Motion.article
             key={project.id}
             className="project-card"
             initial={{ opacity: 0, y: 36 }}
@@ -31,9 +29,18 @@ export default function Projects() {
             {/* Thumbnail */}
             <div className="project-image-wrap">
               <span className="project-num">{project.number}</span>
-              <div className="project-image-placeholder">
-                <span className="project-placeholder-title">{project.title}</span>
-              </div>
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={`${project.title} website preview`}
+                  className="project-image"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="project-image-placeholder">
+                  <span className="project-placeholder-title">{project.title}</span>
+                </div>
+              )}
               <a
                 href={project.liveUrl}
                 target="_blank"
@@ -82,18 +89,21 @@ export default function Projects() {
                 >
                   Live Demo <ArrowRight size={11} />
                 </a>
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-link project-link--alt"
-                >
-                  GitHub <ArrowRight size={11} />
-                </a>
               </div>
             </div>
-          </motion.article>
+          </Motion.article>
         ))}
+      </div>
+
+      <div className="projects-more-wrap">
+        <a
+          href="https://github.com/ameghmurikkoli9?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="projects-view-more"
+        >
+          View More Projects <ArrowRight size={15} />
+        </a>
       </div>
     </section>
   );
