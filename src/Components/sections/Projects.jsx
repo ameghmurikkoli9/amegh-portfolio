@@ -1,12 +1,14 @@
 import { useRef } from "react";
 import { motion as Motion, useInView } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import projects from "../../data/projects";
 import "./Projects.css";
 
 export default function Projects() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
+  const hasMoreProjects = projects.length > featuredProjects.length;
 
   return (
     <section className="projects" id="projects" ref={ref}>
@@ -18,7 +20,7 @@ export default function Projects() {
 
       {/* Grid */}
       <div className="projects-grid">
-        {projects.map((project, i) => (
+        {featuredProjects.map((project, i) => (
           <Motion.article
             key={project.id}
             className="project-card"
@@ -28,7 +30,6 @@ export default function Projects() {
           >
             {/* Thumbnail */}
             <div className="project-image-wrap">
-              <span className="project-num">{project.number}</span>
               {project.image ? (
                 <img
                   src={project.image}
@@ -41,15 +42,6 @@ export default function Projects() {
                   <span className="project-placeholder-title">{project.title}</span>
                 </div>
               )}
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-ext-link"
-                aria-label={`View ${project.title} live`}
-              >
-                <ExternalLink size={16} />
-              </a>
             </div>
 
             {/* Info */}
@@ -95,16 +87,18 @@ export default function Projects() {
         ))}
       </div>
 
-      <div className="projects-more-wrap">
-        <a
-          href="https://github.com/ameghmurikkoli9?tab=repositories"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="projects-view-more"
-        >
-          View More Projects <ArrowRight size={15} />
-        </a>
-      </div>
+      {hasMoreProjects && (
+        <div className="projects-more-wrap">
+          <a
+            href="https://github.com/ameghmurikkoli9?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="projects-view-more"
+          >
+            View More Projects <ArrowRight size={15} />
+          </a>
+        </div>
+      )}
     </section>
   );
 }

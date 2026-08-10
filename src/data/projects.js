@@ -1,7 +1,6 @@
 const projects = [
   {
     id: "new-heights-lending-finance",
-    number: "01",
     title: "New Heights Lending & Finance",
     category: "FINANCE WEBSITE",
     description:
@@ -14,7 +13,6 @@ const projects = [
   },
   {
     id: "code-and-thrive-studio",
-    number: "02",
     title: "Code & Thrive Studio",
     category: "DIGITAL AGENCY WEBSITE",
     description:
@@ -26,15 +24,15 @@ const projects = [
     featured: true,
   },
   {
-    id: "project-three",
-    number: "03",
-    title: "Project Three",
-    category: "BACKEND",
+    id: "skinova",
+    title: "Skinova",
+    category: "SKINCARE E-COMMERCE",
     description:
-      "A RESTful API with full CRUD operations, JWT authentication, role-based access, and MongoDB integration.",
-    techStack: ["Node.js", "Express", "MongoDB", "JWT"],
-    liveUrl: "#",
+      "A refined skincare storefront presenting nature-inspired products through an elegant, responsive shopping experience.",
+    techStack: ["React", "Vite", "CSS", "Responsive UI"],
+    liveUrl: "https://skinova-one.vercel.app/",
     githubUrl: "#",
+    image: "/images/projects/skinova.png",
     featured: true,
   },
 ];
