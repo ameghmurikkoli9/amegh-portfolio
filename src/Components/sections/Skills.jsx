@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { Github } from "lucide-react";
 import htmlIcon from "../../Images/html.svg";
 import cssIcon from "../../Images/css.svg";
 import jsIcon from "../../Images/js.svg";
@@ -8,7 +9,6 @@ import nodeIcon from "../../Images/nodejs.svg";
 import mongoIcon from "../../Images/mongodb.svg";
 import expressIcon from "../../Images/express-js.svg";
 import gitIcon from "../../Images/git-icon.svg";
-import githubIcon from "../../Images/github.svg";
 import figmaIcon from "../../Images/figma.svg";
 import vsCodeIcon from "../../Images/vs-code.svg";
 import "./Skills.css";
@@ -22,7 +22,7 @@ const SKILLS = [
   { name: "MongoDB", icon: mongoIcon },
   { name: "Express.js", icon: expressIcon },
   { name: "Git", icon: gitIcon },
-  { name: "GitHub", icon: githubIcon },
+  { name: "GitHub", Icon: Github },
   { name: "Figma", icon: figmaIcon },
   { name: "VS Code", icon: vsCodeIcon },
 ];
@@ -46,7 +46,11 @@ export default function Skills() {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.35, delay: i * 0.06 }}
           >
-            <img src={skill.icon} alt={skill.name} className="skill-icon" />
+            {skill.Icon ? (
+              <skill.Icon className="skill-icon skill-icon--github" aria-hidden="true" />
+            ) : (
+              <img src={skill.icon} alt="" className="skill-icon" />
+            )}
             <span className="skill-name">{skill.name}</span>
           </motion.div>
         ))}
