@@ -14,6 +14,18 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const handleLogoClick = (event) => {
+    event.preventDefault();
+
+    window.dispatchEvent(new CustomEvent("portfolio:scroll-to-top"));
+
+    window.history.replaceState(
+      null,
+      "",
+      `${window.location.pathname}${window.location.search}`,
+    );
+  };
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -30,7 +42,7 @@ export default function Navbar() {
         role="navigation"
         aria-label="Main navigation"
       >
-        <a href="#hero" className="navbar-logo">
+        <a href="#hero" className="navbar-logo" onClick={handleLogoClick}>
           AM
         </a>
 

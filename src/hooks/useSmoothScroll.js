@@ -22,10 +22,24 @@ export default function useSmoothScroll() {
 
     const updateScrollTrigger = () => ScrollTrigger.update();
     const updateLenis = (time) => lenis.raf(time * 1000);
+    const scrollToTop = () => {
+      lenis.stop();
+      lenis.scrollTo(0, {
+        immediate: reducedMotion,
+        duration: reducedMotion ? 0 : 1,
+        force: true,
+        lock: !reducedMotion,
+        onComplete: () => {
+          lenis.start();
+          ScrollTrigger.update();
+        },
+      });
+    };
 
     lenis.on("scroll", updateScrollTrigger);
     gsap.ticker.add(updateLenis);
     gsap.ticker.lagSmoothing(0);
+    window.addEventListener("portfolio:scroll-to-top", scrollToTop);
 
     const animationContext = gsap.context(() => {
       ScrollTrigger.matchMedia({
@@ -126,6 +140,7 @@ export default function useSmoothScroll() {
     return () => {
       window.clearTimeout(refreshTimer);
       window.removeEventListener("load", refresh);
+      window.removeEventListener("portfolio:scroll-to-top", scrollToTop);
       lenis.off("scroll", updateScrollTrigger);
       gsap.ticker.remove(updateLenis);
       animationContext.revert();
