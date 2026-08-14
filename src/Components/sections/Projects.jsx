@@ -7,34 +7,60 @@ import "./Projects.css";
 export default function Projects() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
-  const featuredProjects = projects.filter((project) => project.featured).slice(0, 3);
-  const hasMoreProjects = projects.length > featuredProjects.length;
+  const marqueeProjects = [...projects, ...projects];
+
+  const handlePointerMove = (event) => {
+    const card = event.currentTarget;
+    const bounds = card.getBoundingClientRect();
+    const x = event.clientX - bounds.left;
+    const y = event.clientY - bounds.top;
+    const rotateY = ((x / bounds.width) - 0.5) * 5;
+    const rotateX = ((y / bounds.height) - 0.5) * -5;
+
+    card.style.setProperty("--pointer-x", `${x}px`);
+    card.style.setProperty("--pointer-y", `${y}px`);
+    card.style.setProperty("--rotate-x", `${rotateX}deg`);
+    card.style.setProperty("--rotate-y", `${rotateY}deg`);
+  };
+
+  const resetPointerEffect = (event) => {
+    event.currentTarget.style.setProperty("--rotate-x", "0deg");
+    event.currentTarget.style.setProperty("--rotate-y", "0deg");
+  };
 
   return (
     <section className="projects" id="projects" ref={ref}>
       {/* Header */}
       <div className="projects-header">
         <span className="section-label">Featured Projects</span>
-        <span className="projects-count">03 Selected Works</span>
+        <span className="projects-count">{String(projects.length).padStart(2, "0")} Selected Works</span>
       </div>
 
-      {/* Grid */}
-      <div className="projects-grid">
-        {featuredProjects.map((project, i) => (
-          <Motion.article
-            key={project.id}
-            className="project-card"
+      <div className="projects-marquee">
+        <div className="projects-track">
+        {marqueeProjects.map((project, i) => {
+          const isDuplicate = i >= projects.length;
+
+          return (
+          <Motion.div
+            key={`${project.id}-${isDuplicate ? "copy" : "original"}`}
+            className="project-slide"
+            aria-hidden={isDuplicate || undefined}
             initial={{ opacity: 0, y: 36 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.55, delay: i * 0.14, ease: "easeOut" }}
+            transition={{ duration: 0.55, delay: (i % projects.length) * 0.1, ease: "easeOut" }}
           >
-            {/* Thumbnail */}
+          <article
+            className="project-card"
+            onPointerMove={handlePointerMove}
+            onPointerLeave={resetPointerEffect}
+          >
             <div className="project-image-wrap">
               {project.image ? (
                 <img
                   src={project.image}
                   alt={`${project.title} website preview`}
-                  className="project-image"
+                  className={`project-image${project.imageFit === "contain" ? " project-image--contain" : ""}`}
                   loading="lazy"
                 />
               ) : (
@@ -57,6 +83,7 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="project-arrow-btn"
                   aria-label={`Open ${project.title}`}
+                  tabIndex={isDuplicate ? -1 : undefined}
                 >
                   <ArrowRight size={18} />
                 </a>
@@ -78,27 +105,18 @@ export default function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="project-link"
+                  tabIndex={isDuplicate ? -1 : undefined}
                 >
                   Live Demo <ArrowRight size={11} />
                 </a>
               </div>
             </div>
-          </Motion.article>
-        ))}
-      </div>
-
-      {hasMoreProjects && (
-        <div className="projects-more-wrap">
-          <a
-            href="https://github.com/ameghmurikkoli9?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="projects-view-more"
-          >
-            View More Projects <ArrowRight size={15} />
-          </a>
+          </article>
+          </Motion.div>
+          );
+        })}
         </div>
-      )}
+      </div>
     </section>
   );
 }

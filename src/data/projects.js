@@ -1,14 +1,15 @@
 const projects = [
   {
-    id: "new-heights-lending-finance",
-    title: "New Heights Lending & Finance",
-    category: "FINANCE WEBSITE",
+    id: "cliplaro",
+    title: "Cliplaro",
+    category: "WEB APPLICATION",
     description:
-      "A responsive lending website that helps Australians compare home, investment, and business finance with clarity.",
-    techStack: ["React", "Vite", "CSS", "Responsive UI"],
-    liveUrl: "https://www.newheightslf.com.au/",
-    githubUrl: "https://github.com/codeandthrive/new-height-finance-website",
-    image: "/images/projects/new-heights-lending-finance.png",
+      "A responsive web application with a dedicated admin panel that I built to manage the platform and its content efficiently.",
+    techStack: ["React", "CSS", "Supabase", "Cashfree"],
+    liveUrl: "https://dev.cliplaro.com/",
+    githubUrl: "#",
+    image: "/images/projects/cliplaro.png",
+    imageFit: "contain",
     featured: true,
   },
   {
@@ -24,6 +25,18 @@ const projects = [
     featured: true,
   },
   {
+    id: "new-heights-lending-finance",
+    title: "New Heights Lending & Finance",
+    category: "FINANCE WEBSITE",
+    description:
+      "A responsive lending website that helps Australians compare home, investment, and business finance with clarity.",
+    techStack: ["React", "Vite", "CSS", "Responsive UI"],
+    liveUrl: "https://newheightslf.com.au/",
+    githubUrl: "https://github.com/codeandthrive/new-height-finance-website",
+    image: "/images/projects/new-heights-lending-finance.png",
+    featured: true,
+  },
+  {
     id: "skinova",
     title: "Skinova",
     category: "SKINCARE E-COMMERCE",
@@ -33,7 +46,7 @@ const projects = [
     liveUrl: "https://skinova-one.vercel.app/",
     githubUrl: "#",
     image: "/images/projects/skinova.png",
-    featured: true,
+    featured: false,
   },
 ];
 
