@@ -10,13 +10,18 @@ export default function useSmoothScroll() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const lenis = new Lenis({
-      duration: reducedMotion ? 0 : 1.1,
+      autoRaf: false,
+      duration: reducedMotion ? 0 : 1.25,
+      easing: (time) => Math.min(1, 1.001 - Math.pow(2, -10 * time)),
       smoothWheel: !reducedMotion,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1.05,
+      syncTouch: false,
+      wheelMultiplier: 0.82,
+      touchMultiplier: 1,
+      gestureOrientation: "vertical",
+      overscroll: true,
       anchors: {
         offset: -64,
-        duration: reducedMotion ? 0 : 1,
+        duration: reducedMotion ? 0 : 1.15,
       },
     });
 
@@ -39,10 +44,54 @@ export default function useSmoothScroll() {
     lenis.on("scroll", updateScrollTrigger);
     gsap.ticker.add(updateLenis);
     gsap.ticker.lagSmoothing(0);
+    ScrollTrigger.config({
+      limitCallbacks: true,
+      ignoreMobileResize: true,
+    });
     window.addEventListener("portfolio:scroll-to-top", scrollToTop);
 
     const animationContext = gsap.context(() => {
       ScrollTrigger.matchMedia({
+        "(prefers-reduced-motion: no-preference)": () => {
+          const labels = gsap.utils.toArray(".section-label");
+          const reveals = labels.map((label) =>
+            gsap.fromTo(
+              label,
+              { autoAlpha: 0, y: 14, filter: "blur(5px)" },
+              {
+                autoAlpha: 1,
+                y: 0,
+                filter: "blur(0px)",
+                duration: 0.8,
+                ease: "power3.out",
+                scrollTrigger: {
+                  trigger: label,
+                  start: "top 90%",
+                  once: true,
+                },
+              },
+            ),
+          );
+
+          const aboutWatermark = document.querySelector(".about-watermark");
+          const watermarkParallax = aboutWatermark
+            ? gsap.to(aboutWatermark, {
+                yPercent: -16,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: ".about",
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 1.2,
+                },
+              })
+            : null;
+
+          return () => {
+            reveals.forEach((animation) => animation.kill());
+            watermarkParallax?.kill();
+          };
+        },
         "(min-width: 769px) and (prefers-reduced-motion: no-preference)": () => {
           const hero = document.querySelector(".hero");
           const about = document.querySelector(".about");
